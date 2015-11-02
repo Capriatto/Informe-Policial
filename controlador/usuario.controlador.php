@@ -1,14 +1,15 @@
 <?php
 
-	class UsuarioControlador(){
+	class UsuarioControlador{
 
 		public function __CONSTRUCT(){
 
 		}
+	
+		public function Index(){
+			require_once 'vista/usuario/header.php';
+			require_once 'vista/usuario/bienvenida.php';
+			require_once 'vista/piePagina.php';
+		}
 	}
-	publuc function Index(){
-		require_once 'vista/header.html';
-		require_once 'vista/usuario/bienvenida';
-		require_once 'vista/footer.html';
-	}
-?>
+?>	
