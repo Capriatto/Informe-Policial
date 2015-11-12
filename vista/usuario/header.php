@@ -10,7 +10,7 @@
 <body>
 	<header>
 		<nav class="navbar navbar-inverse" role="navigation">
-			<div class="container">
+			<div class="container encabezado">
 				<form action="" class="navbar-form navbar-right">
 					<div class="form-group">
 						<label for="usuario" class="sr-only">Usuario</label>
