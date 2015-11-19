@@ -1,4 +1,4 @@
-	<section class="main-container">
+	<section class="main container">
 		<section class="portada	visible-lg visible-md">	
 			<div class="container">
 				<div class="col-md-12">
@@ -35,6 +35,16 @@
 				</div>
 			</div>
 		</section>
+		<aside class="col-lg-4">
+			<h3 class="TituloMenu">INFORMACION</h3>
+			<div class="list-group menuInfo">
+				<a href="#" class="list-group-item">Noticas</a>
+				<a href="#" class="list-group-item">Direccion de Estacion Policial</a>
+				<a href="#" class="list-group-item">Lineas de Emergencia</a>
+				<a href="#" class="list-group-item">Acerca De</a>
+				<a href="#" class="list-group-item">Personal Administrativo</a>
+			</div>
+		</aside>
 	</section>
 	<script src="assets/js/jquery.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
