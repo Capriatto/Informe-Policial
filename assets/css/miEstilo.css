@@ -20,10 +20,11 @@ body{
 }
 nav.navbar{
 	background: rgba(0,0,0,0.3);
+	border: none;
 }
 img.imagenPortada{
 	width: 100%;
-	max-height: 430px;
+	max-height: 300px;
 	border-radius: 20px;
 }
 .menuInfo .list-group-item{
@@ -37,6 +38,24 @@ img.imagenPortada{
 	background: #5E5E61;
 	color: #42FFFA;
 }
-h3.TituloMenu{
+h3.tituloPrincipal{
 	color: #fff;
+	font-weight: bold;
+}
+div.descripcion{
+	padding: 15px 0px;
+	border: #fff solid 2px;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+.imagenDescripcion img{
+	padding: 0px 10px;
+	padding-bottom: 30px;
+}
+img.iconoHome{
+	width: 70px;
+}
+.parrafo p{
+	color: #fff;
+	font-size: 13px;
 }
