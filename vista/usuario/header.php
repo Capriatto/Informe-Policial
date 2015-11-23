@@ -10,8 +10,8 @@
 <body>
 	<header>
 		<nav class="navbar navbar-inverse" role="navigation">
-			<div class="container encabezado">
-				<form action="" class="navbar-form navbar-right visible-lg visible-md">
+			<div class="container encabezado visible-lg visible-md">
+				<form action="" class="navbar-form navbar-right">
 					<div class="form-group">
 						<label for="usuario" class="sr-only">Usuario</label>
 						<input type="text" class="form-control input-sm" placeholder="Usuario">
@@ -22,6 +22,27 @@
 					</div>
 					<input type="submit" class="btn btn-info btn-sm" value="Ingresar">
 				</form>
+			</div>
+			<div class="container encabezado visible-sm visible-xs">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Desplegar navegacion</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+
+				</div>
+				<div class="collapse navbar-collpase navbar-ex1-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="#">Noticias</a></li>
+						<li><a href="#">Direccion Estacion Policial</a></li>
+						<li><a href="#">Lineas Emergencias</a></li>
+						<li><a href="#">Acerca De</a></li>
+						<li><a href="#">Personal Administrativo</a></li>
+					</ul>
+				</div>
 			</div>
 		</nav>
 	</header>

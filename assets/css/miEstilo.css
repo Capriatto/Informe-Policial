@@ -22,6 +22,12 @@ nav.navbar{
 	background: rgba(0,0,0,0.3);
 	border: none;
 }
+nav.navbar .navbar-nav{
+	background: #323738;
+	color: #fff;
+	font-weight: bold;
+	font-size: 16px;
+}
 img.imagenPortada{
 	width: 100%;
 	max-height: 300px;

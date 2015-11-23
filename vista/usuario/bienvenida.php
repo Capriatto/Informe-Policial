@@ -1,7 +1,7 @@
 	<section class="main container">
 		<section class="portada	visible-lg visible-md">	
 			<div class="container">
-				<div class="col-md-12">
+				<div class="visible-lg visible-md">
 					<div id="carousel-1" class="carousel slide" data-ride="carousel">
 						<ol class="carousel-indicators">
 							<li data-target="#carousel-1" data-slide-to="0" class="active"></li>
@@ -33,10 +33,13 @@
 						</div>
 					</div>
 				</div>
+				<div class="visible-sm visible-xs col-sm-12 col-xs-12 imagenPortada">
+					<img src="images/policias formados.jpg">
+				</div>
 			</div>
 		</section>
 		<section class="principal">
-			<aside class="col-lg-4 hidden-xs hidden-sm">
+			<aside class="col-lg-4 col-md-4 visible-lg visible-md">
 				<h3 class="tituloPrincipal">INFORMACION</h3>
 				<div class="list-group menuInfo">
 					<a href="#" class="list-group-item">Noticas</a>
@@ -46,7 +49,7 @@
 					<a href="#" class="list-group-item">Personal Administrativo</a>
 				</div>
 			</aside>
-			<section class="col-lg-8 col-xs-12 col-sm-12">
+			<section class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
 				<h3 class="tituloPrincipal">DESCRIPCION</h3>
 				<div class="descripcion">
 					<div class="imagenDescripcion">
