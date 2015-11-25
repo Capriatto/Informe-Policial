@@ -1,5 +1,5 @@
 	<section class="main container">
-		<section class="portada	visible-lg visible-md">	
+		<section class="portada">	
 			<div class="container">
 				<div class="visible-lg visible-md">
 					<div id="carousel-1" class="carousel slide" data-ride="carousel">
@@ -33,9 +33,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="visible-sm visible-xs col-sm-12 col-xs-12 imagenPortada">
-					<img src="images/policias formados.jpg">
-				</div>
+			</div>
+			<div class="visible-xs col-xs-12 imagenHome phone">
+				<img src="images/policiasformados.jpg">
 			</div>
 		</section>
 		<section class="principal">

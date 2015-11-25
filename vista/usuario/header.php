@@ -23,7 +23,7 @@
 					<input type="submit" class="btn btn-info btn-sm" value="Ingresar">
 				</form>
 			</div>
-			<div class="container encabezado visible-sm visible-xs">
+			<div class="container encabezado visible-xs">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target=".navbar-ex1-collapse">
