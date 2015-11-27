@@ -34,8 +34,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="visible-xs col-xs-12 imagenHome phone">
-				<img src="images/policiasformados.jpg">
+			<div class="visible-xs visible-sm imagenHome phone">
+				<img src="images/policiasformados.jpg" class="img-responsive">
 			</div>
 		</section>
 		<section class="principal">

@@ -25,6 +25,8 @@
 			</div>
 			<div class="container encabezado visible-xs">
 				<div class="navbar-header">
+					<a href="#" class="btn btn-primary btn_cabecera">Ingresar</a>
+					<a href="#" class="btn btn-primary btn_cabecera">Buzon</a>
 					<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target=".navbar-ex1-collapse">
 						<span class="sr-only">Desplegar navegacion</span>
