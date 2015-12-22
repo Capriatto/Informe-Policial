@@ -34,8 +34,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="visible-xs visible-sm imagenHome phone">
-				<img src="images/policiasformados.jpg" class="img-responsive">
+			<div class="visible-xs phone">
+				<img src="images/policiasformados.jpg" class="img-responsive image">
+			</div>
+			<div class="visible-sm tablet-sm">
+				<img src="images/policiasformados.jpg" class="ïmg-responsive image">
 			</div>
 		</section>
 		<section class="principal">
@@ -58,7 +61,7 @@
 					<div class="parrafo">
 						<p>
 						Somos una institución dedicada al mantenimiento del orden público, seguridad ciudadana
-						mediante el monopolio de la fuerza y cumplimiento de las leyes. Estamos sometida  las órdenes del Estado.<br>
+						mediante el monopolio de la fuerza y cumplimiento de las leyes. Estamos sometida a  las órdenes del Estado.<br>
 						</p>
 					 </div>
 				</div>
@@ -68,10 +71,9 @@
 					</div>
 					<div class="parrafo">
 						<p>
-						Nuestra obligación es disuadir  e investigar crímenes en contra de las personas o que afecten 
-						el orden público, así comoel arresto de sospechosos, e informe a las autoridades competentes.
-						<br>Así como también  reportar ofensas menores  por medio  de citaciones que suelen terminar en un
-						pago de fianza, usualmente por violaciones  a las leyes del tránsito vehicular.
+						Nuestra obligación es disuadir  e investigar crímenes en contra de las personas que afecten 
+						el orden público, así como el arresto de sospechosos, reporte ofensas menores por medio  de citaciones que suelen terminar en un pago de fianza, 
+						usualmente por violaciones  a las leyes del tránsito vehicular.
 						</p>	
 					</div>
 				</div>

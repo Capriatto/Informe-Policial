@@ -32,9 +32,14 @@ a.btn_cabecera{
 	margin: 7px 15px;
 	padding: 7px 20px;
 }
-.phone img{
+.phone .image{
 	width: 100%;
-	height: 250px;
+	height: 350px;
+	border-radius: 20px;
+}
+.tablet-sm .image{
+	width: 100%;
+	height: 400px;
 	border-radius: 20px;
 }
 img.imagenPortada{
@@ -56,14 +61,14 @@ img.imagenPortada{
 }
 h3.tituloPrincipal{
 	color: #fff;
-	font-weight: bold;
 }
 div.descripcion{
-	padding: 15px 0px;
+	padding: 15px 0;
 	border: #fff solid 2px;
 	border-radius: 10px;
 	margin-bottom: 20px;
 }
+
 .imagenDescripcion img{
 	padding: 0px 10px;
 	padding-bottom: 30px;

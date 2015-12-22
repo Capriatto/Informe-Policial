@@ -10,7 +10,7 @@
 <body>
 	<header>
 		<nav class="navbar navbar-inverse" role="navigation">
-			<div class="container encabezado visible-lg visible-md">
+			<div class="container encabezado visible-lg visible-md visible-sm">
 				<form action="" class="navbar-form navbar-right">
 					<div class="form-group">
 						<label for="usuario" class="sr-only">Usuario</label>
@@ -25,16 +25,14 @@
 			</div>
 			<div class="container encabezado visible-xs">
 				<div class="navbar-header">
-					<a href="#" class="btn btn-primary btn_cabecera">Ingresar</a>
-					<a href="#" class="btn btn-primary btn_cabecera">Buzon</a>
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
+					<button type="button" class="navbar-toggle" data-toggle="collapse" 
 					data-target=".navbar-ex1-collapse">
 						<span class="sr-only">Desplegar navegacion</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-
+					<a href="#" class="navbar-brand">Policia de la Ciudad</a>
 				</div>
 				<div class="collapse navbar-collpase navbar-ex1-collapse">
 					<ul class="nav navbar-nav">
@@ -45,6 +43,7 @@
 						<li><a href="#">Personal Administrativo</a></li>
 					</ul>
 				</div>
+
 			</div>
 		</nav>
 	</header>
