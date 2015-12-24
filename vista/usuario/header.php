@@ -9,40 +9,40 @@
 </head>
 <body>
 	<header>
-		<nav class="navbar navbar-inverse" role="navigation">
-			<div class="container encabezado visible-lg visible-md visible-sm">
-				<form action="" class="navbar-form navbar-right">
-					<div class="form-group">
-						<label for="usuario" class="sr-only">Usuario</label>
-						<input type="text" class="form-control input-sm" placeholder="Usuario">
-					</div>
-					<div class="form-group">
-						<label for="password" class="sr-only">Contrasenia</label>
-						<input type="password" class="form-control input-sm" placeholder="Contraseña">
-					</div>
-					<input type="submit" class="btn btn-info btn-sm" value="Ingresar">
-				</form>
-			</div>
-			<div class="container encabezado visible-xs">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container encabezado">
+				
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" 
-					data-target=".navbar-ex1-collapse">
-						<span class="sr-only">Desplegar navegacion</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a href="#" class="navbar-brand">Policia de la Ciudad</a>
-				</div>
-				<div class="collapse navbar-collpase navbar-ex1-collapse">
-					<ul class="nav navbar-nav">
-						<li><a href="#">Noticias</a></li>
-						<li><a href="#">Direccion Estacion Policial</a></li>
-						<li><a href="#">Lineas Emergencias</a></li>
-						<li><a href="#">Acerca De</a></li>
-						<li><a href="#">Personal Administrativo</a></li>
-					</ul>
-				</div>
+			    	<button type="button" class="navbar-toggle" data-toggle="collapse"
+			            data-target=".navbar-ex1-collapse">
+				      <span class="sr-only">Desplegar navegación</span>
+				      <span class="icon-bar"></span>
+				      <span class="icon-bar"></span>
+				      <span class="icon-bar"></span>
+			    	</button>
+			  	</div>
+			  	
+			  <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+			       otro elemento que se pueda ocultar al minimizar la barra -->
+			  	<div class="collapse navbar-collapse navbar-ex1-collapse">
+			    	<ul class="nav navbar-nav hidden-md hidden-lg">
+				      <li><a href="#">Noticias</a></li>
+				      <li><a href="#">Emergencias</a></li>
+				      <li><a href="#">Personal Administrativo</a></li>
+				      <li><a href="#">Acerca De</a></li>
+			    	</ul>
+			 	<form action="" class="navbar-form navbar-right visible-lg visible-md">
+			 		<div class="form-group">
+			 			<input type="text" class="form-control loggin" placeholder="Usuario">
+			 		</div>
+			 		<div class="form-group">
+			 			<input type="password" class="form-control loggin" placeholder="Contraseña">
+			 		</div>
+			 		<button type="submit" class="btn submit">Ingresar</button>
+			 	</form>
+			 
+			    
+			  </div>
 
 			</div>
 		</nav>

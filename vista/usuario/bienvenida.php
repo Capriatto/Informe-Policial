@@ -49,7 +49,6 @@
 					<a href="#" class="list-group-item">Direccion de Estacion Policial</a>
 					<a href="#" class="list-group-item">Lineas de Emergencia</a>
 					<a href="#" class="list-group-item">Acerca De</a>
-					<a href="#" class="list-group-item">Personal Administrativo</a>
 				</div>
 			</aside>
 			<section class="col-lg-8 col-md-8 col-xs-12 col-sm-12">

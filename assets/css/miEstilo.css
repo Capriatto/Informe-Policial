@@ -14,23 +14,18 @@ body{
 		background-image: url("../../images/fondoPolicia.jpg");
 	}
 }
-.navbar div.encabezado{
-	border: 2px solid white;
+nav div.encabezado{
+	border: 3px solid white;
 	border-radius: 13px;
 }
 nav.navbar{
 	background: rgba(0,0,0,0.3);
 	border: none;
 }
-nav.navbar .navbar-nav{
-	background: #323738;
-	color: #fff;
+.navbar-nav li:hover{
+	background: #777777;
+	color: #FFFFFF;
 	font-weight: bold;
-	font-size: 16px;
-}
-a.btn_cabecera{
-	margin: 7px 15px;
-	padding: 7px 20px;
 }
 .phone .image{
 	width: 100%;
