@@ -46,8 +46,9 @@
 				<h3 class="tituloPrincipal">INFORMACION</h3>
 				<div class="list-group menuInfo">
 					<a href="#" class="list-group-item">Noticas</a>
-					<a href="#" class="list-group-item">Direccion de Estacion Policial</a>
+					<a href="#" class="list-group-item">Estaciones Policiales</a>
 					<a href="#" class="list-group-item">Lineas de Emergencia</a>
+					<a href="#" class="list-group-item">Desaparecidos</a>
 					<a href="#" class="list-group-item">Acerca De</a>
 				</div>
 			</aside>
@@ -88,9 +89,17 @@
 						</p>
 					</div>
 				</div>
+				<table class="">
+					<tr>
+						<td colspan=2>VER LINES DE EMERGENCIAS</td>
+					</tr>
+
+				</table>
 			</section>
 		</section>
 	</section>
+	<script src="assets/js/inicio.js"></script>
 	<script src="assets/js/jquery.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
+
 </body>
