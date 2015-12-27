@@ -75,3 +75,10 @@ img.iconoHome{
 	color: #fff;
 	font-size: 13px;
 }
+table.infoEmergencias{
+	color: #fff;
+}
+table.infoEmergencias .tabTitulo {
+	background: #7D7D7D;
+	text-align: center;
+}
