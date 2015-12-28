@@ -83,7 +83,7 @@
 					</div>
 					<div class="parrafo">
 						<p>
-						Realizamos patrullaje en donde existe mayor delincuencia, tenemos varios <a class="btn btn-primary btn-xs" href="#">líneas telefónicas</a> disponibles 
+						Realizamos patrullaje en donde existe mayor delincuencia, tenemos varios <button class="btn btn-primary btn-xs" id="irAbajo">líneas telefónicas</button> disponibles 
 						para atender cualquier emergencia y poder asistirlo con el envío de una patrulla y por esa razón el objetivo ante esto es 
 						poder preservar la armonía social con actividades que se encuentren dentro del orden.
 						</p>

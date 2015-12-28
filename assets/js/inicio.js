@@ -1,16 +1,15 @@
 (function(){
 	
 	var cabeceraTabla=document.getElementById("cabecera");
-	
-	cabeceraTabla.addEventListener("click",function(){
-		
+	var botonEmergencia=document.getElementById("irAbajo");
+
+	var mostrarLineas=function(){
 		var col_1=["Radio Patrullas","Accidentes de Transito","Bomberos",
 					"PAC (Policia de Ayuda Ciudadana)","Unidad Op. de Tránsito",
 					"Ambulancias de Emergencias"];
 		var col_2=["110","157","119","120","116","165"];
 		var tab=document.getElementById("tabEmergencias");
 		var celdaTitulo=document.getElementsByTagName("tr")[0];
-		console.log(celdaTitulo.className);
 		if(celdaTitulo.className=="titulo"){
 			celdaTitulo.className="";
 			celdaTitulo.style.background="#FF0000";
@@ -32,6 +31,7 @@
 				fila.appendChild(celda_2);
 				tab.appendChild(fila);
 			}
+			desplazar();
 		}else{
 			celdaTitulo.className="titulo";
 			celdaTitulo.style.background="#7D7D7D";
@@ -39,5 +39,10 @@
 				tab.removeChild(document.getElementsByTagName("tr")[1]);
 			}
 		}
-	})
+	}
+	var desplazar=function(){
+		window.scrollTo(0,document.body.scrollHeight);
+	}
+	cabeceraTabla.addEventListener("click",mostrarLineas);
+	botonEmergencia.addEventListener("click", desplazar);
 })();
