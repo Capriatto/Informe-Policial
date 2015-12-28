@@ -89,10 +89,10 @@
 						</p>
 					</div>
 				</div>
-				<table border=1 class="table table-bordered col-xs-12 col-sm-12 col-md-8 col-lg-8
+				<table class="table table-bordered col-xs-12 col-sm-12 col-md-8 col-lg-8
 										infoEmergencias" id="tabEmergencias">
-					<tr class="tabTitulo">
-						<td colspan=2 id="cabecera">VER LINES DE EMERGENCIAS</td>
+					<tr class="titulo">
+						<td colspan=2 id="cabecera">VER LINEAS DE EMERGENCIAS</td>
 					</tr>
 
 				</table>

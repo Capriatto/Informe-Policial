@@ -78,7 +78,7 @@ img.iconoHome{
 table.infoEmergencias{
 	color: #fff;
 }
-table.infoEmergencias .tabTitulo {
+table.infoEmergencias .titulo{
 	background: #7D7D7D;
 	text-align: center;
 }
