@@ -47,7 +47,6 @@
 				<div class="list-group menuInfo">
 					<a href="#" class="list-group-item">Noticas</a>
 					<a href="#" class="list-group-item">Estaciones Policiales</a>
-					<a href="#" class="list-group-item">Lineas de Emergencia</a>
 					<a href="#" class="list-group-item">Desaparecidos</a>
 					<a href="#" class="list-group-item">Acerca De</a>
 				</div>

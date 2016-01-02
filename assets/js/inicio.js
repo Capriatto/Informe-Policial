@@ -14,6 +14,7 @@
 			celdaTitulo.className="";
 			celdaTitulo.style.background="#FF0000";
 			celdaTitulo.style.textAlign="center";
+			celdaTitulo.style.fontWeight="bold";
 			for(var i=0;i<col_1.length;i++){
 				var fila=document.createElement("tr");
 

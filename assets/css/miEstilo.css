@@ -22,10 +22,11 @@ nav.navbar{
 	background: rgba(0,0,0,0.1);
 	border: none;
 }
-.navbar-nav li:hover{
-	background: #EBEBEB;
+
+.btnNav:hover{
+	background: #ffffff;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 18px;
 }
 .phone .image{
 	width: 100%;
@@ -80,5 +81,10 @@ table.infoEmergencias{
 }
 table.infoEmergencias .titulo{
 	background: #7D7D7D;
+	font-weight: bold;
+	color: #ffffff;
 	text-align: center;
+}
+td.nombreEmergencia, td.numeroEmergencia{
+	background: rgba(0,0,0,0.7);
 }
