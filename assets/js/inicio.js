@@ -3,6 +3,7 @@
 	var cabeceraTabla=document.getElementById("cabecera");
 	var botonEmergencia=document.getElementById("irAbajo");
 
+
 	var mostrarLineas=function(){
 		var col_1=["Radio Patrullas","Accidentes de Transito","Bomberos",
 					"PAC (Policia de Ayuda Ciudadana)","Unidad Op. de Tránsito",
@@ -17,7 +18,7 @@
 			celdaTitulo.style.fontWeight="bold";
 			for(var i=0;i<col_1.length;i++){
 				var fila=document.createElement("tr");
-
+				fila.setAttribute("class", "filaEmergencias")
 				var celda_1=document.createElement("td");
 				celda_1.setAttribute("class", "nombreEmergencia");
 				celda_1.setAttribute("align", "center")
@@ -41,9 +42,30 @@
 			}
 		}
 	}
-	var desplazar=function(){
+	var validarFormulario=function(){
+		var bandera=true;
+		var formulario=document.loggin;
+		for(var i=0;i<formulario.length;i++){
+			if(formulario[i].type=="text" || formulario[i].type=="password"){
+				if(formulario[i].value==null || 
+					formulario[i].value.length==0){
+					bandera=false;
+				}
+			}
+		}
+		comprobar(bandera);
+	}
+	function comprobar(b){
+		if(b){
+			alert("ENVIO");
+			document.loggin.submit();
+		}
+	}
+	function desplazar(){
 		window.scrollTo(0,document.body.scrollHeight);
 	}
+	
+	document.loggin.addEventListener("submit", validarFormulario);
 	cabeceraTabla.addEventListener("click",mostrarLineas);
 	botonEmergencia.addEventListener("click", desplazar);
 })();

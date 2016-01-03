@@ -11,7 +11,6 @@
 	<header>
 		<nav class="navbar navbar-default" role="navigation">
 			<div class="container encabezado">
-				
 				<div class="navbar-header">
 			    	<button type="button" class="navbar-toggle" data-toggle="collapse"
 			            data-target=".navbar-ex1-collapse">
@@ -31,17 +30,17 @@
 				      <li class="btnNav"><a href="#">Desaparecidos</a></li>
 				      <li class="btnNav"><a href="#">Acerca De</a></li>
 			    	</ul>
-			 	<form action="" class="navbar-form navbar-right visible-lg visible-md">
+			 	<form action="#" class="navbar-form navbar-right visible-lg visible-md" 
+			 	name="loggin" method="POST">
 			 		<div class="form-group">
 			 			<input type="text" class="form-control loggin" placeholder="Usuario">
 			 		</div>
 			 		<div class="form-group">
 			 			<input type="password" class="form-control loggin" placeholder="Contraseña">
 			 		</div>
-			 		<button type="submit" class="btn submit">Ingresar</button>
+			 		<input type="submit" class="btn submit" value="Ingresar">
 			 	</form>
 			  </div>
-
 			</div>
 		</nav>
 	</header>

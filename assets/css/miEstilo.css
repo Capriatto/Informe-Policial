@@ -15,14 +15,13 @@ body{
 	}
 }
 nav div.encabezado{
-	border: 3px solid white;
+	border: 2px solid #ffffff;
 	border-radius: 13px;
 }
 nav.navbar{
 	background: rgba(0,0,0,0.1);
 	border: none;
 }
-
 .btnNav:hover{
 	background: #ffffff;
 	font-weight: bold;
@@ -85,6 +84,9 @@ table.infoEmergencias .titulo{
 	color: #ffffff;
 	text-align: center;
 }
-td.nombreEmergencia, td.numeroEmergencia{
+.filaEmergencias{
 	background: rgba(0,0,0,0.7);
+}
+.filaEmergencias:hover{
+	background: #404040;
 }
