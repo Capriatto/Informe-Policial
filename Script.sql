@@ -1,4 +1,5 @@
-===========================================================*/
+
+/*==============================================================*/
 /* Table: ASALTO                                                */
 /*==============================================================*/
 create table ASALTO (
@@ -45,6 +46,23 @@ CODIGOBANDA
 /*==============================================================*/
 create  index INTEGRA_FK on BANDADELINCUENCIAL (
 CODIGODETENIDO
+);
+
+/*==============================================================*/
+/* Table: COMANDOPOLICIAL                                       */
+/*==============================================================*/
+create table COMANDOPOLICIAL (
+   CODIGOCOMANDO        INT4                 not null,
+   NOMBRECOMANDO        VARCHAR(100)         null,
+   DIRECCIONCOMANDO     VARCHAR(100)         null,
+   constraint PK_COMANDOPOLICIAL primary key (CODIGOCOMANDO)
+);
+
+/*==============================================================*/
+/* Index: COMANDOPOLICIAL_PK                                    */
+/*==============================================================*/
+create unique index COMANDOPOLICIAL_PK on COMANDOPOLICIAL (
+CODIGOCOMANDO
 );
 
 /*==============================================================*/
@@ -109,6 +127,7 @@ CODIGOJUEZ
 /*==============================================================*/
 create table DETENIDO (
    CODIGODETENIDO       INT4                 not null,
+   CODIGOMOD            INT4                 not null,
    NOMBREDETENIDO       VARCHAR(100)         null,
    APELLIDODETENIDO     VARCHAR(100)         null,
    constraint PK_DETENIDO primary key (CODIGODETENIDO)
@@ -119,6 +138,13 @@ create table DETENIDO (
 /*==============================================================*/
 create unique index DETENIDO_PK on DETENIDO (
 CODIGODETENIDO
+);
+
+/*==============================================================*/
+/* Index: CAPTURA_FK                                            */
+/*==============================================================*/
+create  index CAPTURA_FK on DETENIDO (
+CODIGOMOD
 );
 
 /*==============================================================*/
@@ -154,6 +180,59 @@ create table JUEZ (
 /*==============================================================*/
 create unique index JUEZ_PK on JUEZ (
 CODIGOJUEZ
+);
+
+/*==============================================================*/
+/* Table: MODULO                                                */
+/*==============================================================*/
+create table MODULO (
+   CODIGOMOD            INT4                 not null,
+   CODIGOCOMANDO        INT4                 not null,
+   NUMEROMODULO         INT4                 null,
+   DIRECCIONMODULO      VARCHAR(100)         null,
+   constraint PK_MODULO primary key (CODIGOMOD)
+);
+
+/*==============================================================*/
+/* Index: MODULO_PK                                             */
+/*==============================================================*/
+create unique index MODULO_PK on MODULO (
+CODIGOMOD
+);
+
+/*==============================================================*/
+/* Index: COMPONE_FK                                            */
+/*==============================================================*/
+create  index COMPONE_FK on MODULO (
+CODIGOCOMANDO
+);
+
+/*==============================================================*/
+/* Table: POLICIA                                               */
+/*==============================================================*/
+create table POLICIA (
+   CODIGOPOLICIA        INT4                 not null,
+   CODIGOMOD            INT4                 not null,
+   NOMBREPOL            VARCHAR(100)         null,
+   APELLIDOPOL          VARCHAR(100)         null,
+   EDAD                 INT4                 null,
+   FECHANAC             DATE                 null,
+   RANGO                VARCHAR(30)          null,
+   constraint PK_POLICIA primary key (CODIGOPOLICIA)
+);
+
+/*==============================================================*/
+/* Index: POLICIA_PK                                            */
+/*==============================================================*/
+create unique index POLICIA_PK on POLICIA (
+CODIGOPOLICIA
+);
+
+/*==============================================================*/
+/* Index: COMPRENDE_FK                                          */
+/*==============================================================*/
+create  index COMPRENDE_FK on POLICIA (
+CODIGOMOD
 );
 
 /*==============================================================*/
@@ -237,6 +316,21 @@ alter table DELITO
 alter table DELITO
    add constraint FK_DELITO_RELATIONS_JUEZ foreign key (CODIGOJUEZ)
       references JUEZ (CODIGOJUEZ)
+      on delete restrict on update restrict;
+
+alter table DETENIDO
+   add constraint FK_DETENIDO_CAPTURA_MODULO foreign key (CODIGOMOD)
+      references MODULO (CODIGOMOD)
+      on delete restrict on update restrict;
+
+alter table MODULO
+   add constraint FK_MODULO_COMPONE_COMANDOP foreign key (CODIGOCOMANDO)
+      references COMANDOPOLICIAL (CODIGOCOMANDO)
+      on delete restrict on update restrict;
+
+alter table POLICIA
+   add constraint FK_POLICIA_COMPRENDE_MODULO foreign key (CODIGOMOD)
+      references MODULO (CODIGOMOD)
       on delete restrict on update restrict;
 
 alter table SUCURSAL
