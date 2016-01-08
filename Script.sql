@@ -130,6 +130,7 @@ create table DETENIDO (
    CODIGOMOD            INT4                 not null,
    NOMBREDETENIDO       VARCHAR(100)         null,
    APELLIDODETENIDO     VARCHAR(100)         null,
+   FOTODETENIDO         CHAR(254)            null,
    constraint PK_DETENIDO primary key (CODIGODETENIDO)
 );
 
@@ -190,6 +191,9 @@ create table MODULO (
    CODIGOCOMANDO        INT4                 not null,
    NUMEROMODULO         INT4                 null,
    DIRECCIONMODULO      VARCHAR(100)         null,
+   FOTOMODULO           CHAR(254)            null,
+   NOTICIA              VARCHAR(1700)        null,
+   FOTONOTICIA          CHAR(254)            null,
    constraint PK_MODULO primary key (CODIGOMOD)
 );
 
@@ -218,6 +222,7 @@ create table POLICIA (
    EDAD                 INT4                 null,
    FECHANAC             DATE                 null,
    RANGO                VARCHAR(30)          null,
+   FOTOPOLICIA          CHAR(254)            null,
    constraint PK_POLICIA primary key (CODIGOPOLICIA)
 );
 
