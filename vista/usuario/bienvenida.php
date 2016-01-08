@@ -10,24 +10,28 @@
 						</ol>
 						<div class="carousel-inner" role="listbox">
 							<div class="item active">
-								<img src="images/policiasEnFila.jpg" class="imagenPortada">
+								<img src="images/foto Policia.jpg" class="imagenPortada">
 								<div class="carousel-caption">
 									<h2>CENTRO POLICIAL</h2>
-									<p>Al servicio de la población</p>
+									<p>La Institución Verde Olivo Policial está al servicio de la
+									población, con el objeto de prevalecer la paz, orden y seguridad
+									entre la ciudadanía.</p>
 								</div>
 							</div>
 							<div class="item">
-								<img src="images/policiasuniformados.jpg" class="imagenPortada">
+								<img src="images/formacion Policias.jpg" class="imagenPortada">
 								<div class="carousel-caption">
 									<h2>CENTRO POLICIAL</h2>
-									<p>Preparados para cualquier emergencia o peligro a enfnrentar</p>
+									<p>Uniformados preparados para enfrentar conflictos y dar 
+									apoyo en momentos de emergencia.</p>
 								</div>
 							</div>
 							<div class="item">
-								<img src="images/uniformados.jpg" class="imagenPortada">
+								<img src="images/Policias Formados.jpg" class="imagenPortada">
 								<div class="carousel-caption">
 									<h3>CENTRO POLICIAL</h3>
-									<p>Atencion a la ciudadania brindando seguridad ciudadana</p>
+									<p>La policia realiza su labor y está al tanto en la Seguridad Ciudadana para que la
+									 población se sienta más segura y confiada en las calles.</p>
 								</div>
 							</div>
 						</div>
@@ -35,17 +39,17 @@
 				</div>
 			</div>
 			<div class="visible-xs phone">
-				<img src="images/policiasformados.jpg" class="img-responsive image">
+				<img src="images/foto Policia.jpg" class="img-responsive image">
 			</div>
 			<div class="visible-sm tablet-sm">
-				<img src="images/policiasformados.jpg" class="ïmg-responsive image">
+				<img src="images/foto Policia.jpg" class="ïmg-responsive image">
 			</div>
 		</section>
 		<section class="principal">
 			<aside class="col-lg-4 col-md-4 visible-lg visible-md">
 				<h3 class="tituloPrincipal">INFORMACION</h3>
 				<div class="list-group menuInfo">
-					<a href="#" class="list-group-item">Noticas</a>
+					<a href="?c=1" class="list-group-item">Noticas</a>
 					<a href="#" class="list-group-item">Estaciones Policiales</a>
 					<a href="#" class="list-group-item">Desaparecidos</a>
 					<a href="#" class="list-group-item">Acerca De</a>

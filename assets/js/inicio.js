@@ -46,7 +46,8 @@
 		var bandera=true;
 		var formulario=document.loggin;
 		for(var i=0;i<formulario.length;i++){
-			if(formulario[i].type=="text" || formulario[i].type=="password"){
+			if(formulario[i].type=="text" || 
+				formulario[i].type=="password"){
 				if(formulario[i].value==null || 
 					formulario[i].value.length==0){
 					bandera=false;
@@ -55,6 +56,10 @@
 		}
 		comprobar(bandera);
 	}
+	function inactivar(){
+		return false;
+	}
+	//falta trabajar en la funcion aun...
 	function comprobar(b){
 		if(b){
 			alert("ENVIO");
@@ -64,8 +69,12 @@
 	function desplazar(){
 		window.scrollTo(0,document.body.scrollHeight);
 	}
-	
+	/*deshacer el seleccionado de texto y menu con clic derecho*/
+	document.oncontextmenu = inactivar;
+	document.onselectstart=inactivar;
+	//document.onmousedown=inactivar;
+
 	document.loggin.addEventListener("submit", validarFormulario);
-	cabeceraTabla.addEventListener("click",mostrarLineas);
+	cabeceraTabla.addEventListener("click", mostrarLineas);
 	botonEmergencia.addEventListener("click", desplazar);
 })();
