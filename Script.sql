@@ -1,5 +1,4 @@
-
-/*==============================================================*/
+==============================================================*/
 /* Table: ASALTO                                                */
 /*==============================================================*/
 create table ASALTO (
@@ -187,13 +186,11 @@ CODIGOJUEZ
 /* Table: MODULO                                                */
 /*==============================================================*/
 create table MODULO (
-   CODIGOMOD            INT4                 not null,
+   CODIGOMOD            SERIAL               not null,
    CODIGOCOMANDO        INT4                 not null,
    NUMEROMODULO         INT4                 null,
    DIRECCIONMODULO      VARCHAR(100)         null,
    FOTOMODULO           CHAR(254)            null,
-   NOTICIA              VARCHAR(1700)        null,
-   FOTONOTICIA          CHAR(254)            null,
    constraint PK_MODULO primary key (CODIGOMOD)
 );
 
@@ -209,6 +206,32 @@ CODIGOMOD
 /*==============================================================*/
 create  index COMPONE_FK on MODULO (
 CODIGOCOMANDO
+);
+
+/*==============================================================*/
+/* Table: NOTICIA                                               */
+/*==============================================================*/
+create table NOTICIA (
+   CODIGONOTICIA        SERIAL               not null,
+   CODIGOMOD            INT4                 not null,
+   TITULAR              VARCHAR(40)          null,
+   REDACCION            VARCHAR(1500)        null,
+   FOTONOTICIA          CHAR(254)            null,
+   constraint PK_NOTICIA primary key (CODIGONOTICIA)
+);
+
+/*==============================================================*/
+/* Index: NOTICIA_PK                                            */
+/*==============================================================*/
+create unique index NOTICIA_PK on NOTICIA (
+CODIGONOTICIA
+);
+
+/*==============================================================*/
+/* Index: INFORMA_FK                                            */
+/*==============================================================*/
+create  index INFORMA_FK on NOTICIA (
+CODIGOMOD
 );
 
 /*==============================================================*/
@@ -331,6 +354,11 @@ alter table DETENIDO
 alter table MODULO
    add constraint FK_MODULO_COMPONE_COMANDOP foreign key (CODIGOCOMANDO)
       references COMANDOPOLICIAL (CODIGOCOMANDO)
+      on delete restrict on update restrict;
+
+alter table NOTICIA
+   add constraint FK_NOTICIA_INFORMA_MODULO foreign key (CODIGOMOD)
+      references MODULO (CODIGOMOD)
       on delete restrict on update restrict;
 
 alter table POLICIA
