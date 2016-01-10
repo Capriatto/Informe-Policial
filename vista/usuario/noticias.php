@@ -10,7 +10,7 @@
 				</div>
 		</aside>
 		<section class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
-			<table class="table-responsive table-condensed">
+			<table class="table-responsive table-condensed col-lg-12 col-md-12">
 				<tr>
 					<td colspan=3>MODULOS POLICIALES</td>
 				</tr>
