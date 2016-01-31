@@ -1,4 +1,5 @@
-==============================================================*/
+
+/*==============================================================*/
 /* Table: ASALTO                                                */
 /*==============================================================*/
 create table ASALTO (
@@ -290,6 +291,39 @@ CODIGOENTIDAD
 );
 
 /*==============================================================*/
+/* Table: USUARIO                                               */
+/*==============================================================*/
+create table USUARIO (
+   CODUSUARIO           SERIAL               not null,
+   CODIGOPOLICIA        INT4                 not null,
+   CODIGOJUEZ           INT4                 not null,
+   NICK                 VARCHAR(30)          null,
+   PASSWORD             VARCHAR(70)          null,
+   constraint PK_USUARIO primary key (CODUSUARIO)
+);
+
+/*==============================================================*/
+/* Index: USUARIO_PK                                            */
+/*==============================================================*/
+create unique index USUARIO_PK on USUARIO (
+CODUSUARIO
+);
+
+/*==============================================================*/
+/* Index: ES__FK                                                */
+/*==============================================================*/
+create  index ES__FK on USUARIO (
+CODIGOPOLICIA
+);
+
+/*==============================================================*/
+/* Index: ES_FK                                                 */
+/*==============================================================*/
+create  index ES_FK on USUARIO (
+CODIGOJUEZ
+);
+
+/*==============================================================*/
 /* Table: VIGILANTE                                             */
 /*==============================================================*/
 create table VIGILANTE (
@@ -369,4 +403,14 @@ alter table POLICIA
 alter table SUCURSAL
    add constraint FK_SUCURSAL_TIENE_ENTIDADB foreign key (CODIGOENTIDAD)
       references ENTIDADBANCARIA (CODIGOENTIDAD)
+      on delete restrict on update restrict;
+
+alter table USUARIO
+   add constraint FK_USUARIO_ES_JUEZ foreign key (CODIGOJUEZ)
+      references JUEZ (CODIGOJUEZ)
+      on delete restrict on update restrict;
+
+alter table USUARIO
+   add constraint FK_USUARIO_ES__POLICIA foreign key (CODIGOPOLICIA)
+      references POLICIA (CODIGOPOLICIA)
       on delete restrict on update restrict;
