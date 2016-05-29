@@ -1,273 +1,416 @@
--- phpMyAdmin SQL Dump
--- version 4.1.6
--- http://www.phpmyadmin.net
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 12-02-2015 a las 20:09:22
--- Versión del servidor: 5.6.16
--- Versión de PHP: 5.5.9
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+/*==============================================================*/
+/* Table: ASALTO                                                */
+/*==============================================================*/
+create table ASALTO (
+   CODIGOSUCURSAL       INT4                 not null,
+   CODIGODETENIDO       INT4                 not null,
+   FECHAATRACO          DATE                 null
+);
 
+/*==============================================================*/
+/* Index: SUFRE_FK                                              */
+/*==============================================================*/
+create  index SUFRE_FK on ASALTO (
+CODIGOSUCURSAL
+);
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*==============================================================*/
+/* Index: REALIZO_FK                                            */
+/*==============================================================*/
+create  index REALIZO_FK on ASALTO (
+CODIGODETENIDO
+);
 
---
--- Base de datos: `policial`
---
+/*==============================================================*/
+/* Table: BANDADELINCUENCIAL                                    */
+/*==============================================================*/
+create table BANDADELINCUENCIAL (
+   CODIGOBANDA          INT4                 not null,
+   CODIGODETENIDO       INT4                 null,
+   NOMBREBANDA          VARCHAR(100)         null,
+   NUMEROBANDA          NUMERIC              null,
+   DELITO               BOOL                 null,
+   constraint PK_BANDADELINCUENCIAL primary key (CODIGOBANDA)
+);
 
--- --------------------------------------------------------
+/*==============================================================*/
+/* Index: BANDADELINCUENCIAL_PK                                 */
+/*==============================================================*/
+create unique index BANDADELINCUENCIAL_PK on BANDADELINCUENCIAL (
+CODIGOBANDA
+);
 
---
--- Estructura de tabla para la tabla `atraco_persona`
---
+/*==============================================================*/
+/* Index: INTEGRA_FK                                            */
+/*==============================================================*/
+create  index INTEGRA_FK on BANDADELINCUENCIAL (
+CODIGODETENIDO
+);
 
-CREATE TABLE IF NOT EXISTS `atraco_persona` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `atraco_sucursal_id` int(11) NOT NULL,
-  `persona_detenida_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk1` (`persona_detenida_id`),
-  KEY `fk2` (`atraco_sucursal_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+/*==============================================================*/
+/* Table: COMANDOPOLICIAL                                       */
+/*==============================================================*/
+create table COMANDOPOLICIAL (
+   CODIGOCOMANDO        INT4                 not null,
+   NOMBRECOMANDO        VARCHAR(100)         null,
+   DIRECCIONCOMANDO     VARCHAR(100)         null,
+   constraint PK_COMANDOPOLICIAL primary key (CODIGOCOMANDO)
+);
 
--- --------------------------------------------------------
+/*==============================================================*/
+/* Index: COMANDOPOLICIAL_PK                                    */
+/*==============================================================*/
+create unique index COMANDOPOLICIAL_PK on COMANDOPOLICIAL (
+CODIGOCOMANDO
+);
 
---
--- Estructura de tabla para la tabla `atraco_sucursal`
---
+/*==============================================================*/
+/* Table: CONTRATACION                                          */
+/*==============================================================*/
+create table CONTRATACION (
+   CODIGOENTIDAD        INT4                 null,
+   CODIGOVIGILANTE      INT4                 not null,
+   CODIGOSUCURSAL       INT4                 null,
+   FECHACONTRATACION    DATE                 null,
+   ARMADO               BOOL                 null
+);
 
-CREATE TABLE IF NOT EXISTS `atraco_sucursal` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sucursal_id` int(11) NOT NULL,
-  `fecha_atraco` date NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk3` (`sucursal_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+/*==============================================================*/
+/* Index: POSEE_FK                                              */
+/*==============================================================*/
+create  index POSEE_FK on CONTRATACION (
+CODIGOVIGILANTE
+);
 
--- --------------------------------------------------------
+/*==============================================================*/
+/* Index: REQUIERE_FK                                           */
+/*==============================================================*/
+create  index REQUIERE_FK on CONTRATACION (
+CODIGOSUCURSAL
+);
 
---
--- Estructura de tabla para la tabla `banda`
---
+/*==============================================================*/
+/* Index: NECESITA_FK                                           */
+/*==============================================================*/
+create  index NECESITA_FK on CONTRATACION (
+CODIGOENTIDAD
+);
 
-CREATE TABLE IF NOT EXISTS `banda` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `codigo` int(4) NOT NULL,
-  `nombre_banda` varchar(140) NOT NULL,
-  `cantidad_miembros` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+/*==============================================================*/
+/* Table: DELITO                                                */
+/*==============================================================*/
+create table DELITO (
+   CODIGODETENIDO       INT4                 not null,
+   CODIGOJUEZ           INT4                 not null,
+   NOMBREDELITO         VARCHAR(100)         null,
+   CONDENA              BOOL                 null,
+   CARCEL               NUMERIC              null
+);
 
---
--- Volcado de datos para la tabla `banda`
---
+/*==============================================================*/
+/* Index: RELATIONSHIP_8_FK                                     */
+/*==============================================================*/
+create  index RELATIONSHIP_8_FK on DELITO (
+CODIGODETENIDO
+);
 
-INSERT INTO `banda` (`id`, `codigo`, `nombre_banda`, `cantidad_miembros`) VALUES
-(1, 111, 'Banda1', 2),
-(2, 245, 'Banda2', 4),
-(3, 235, 'Banda3', 5),
-(4, 176, 'Banda4', 3);
+/*==============================================================*/
+/* Index: RELATIONSHIP_9_FK                                     */
+/*==============================================================*/
+create  index RELATIONSHIP_9_FK on DELITO (
+CODIGOJUEZ
+);
 
--- --------------------------------------------------------
+/*==============================================================*/
+/* Table: DETENIDO                                              */
+/*==============================================================*/
+create table DETENIDO (
+   CODIGODETENIDO       INT4                 not null,
+   CODIGOMOD            INT4                 not null,
+   NOMBREDETENIDO       VARCHAR(100)         null,
+   APELLIDODETENIDO     VARCHAR(100)         null,
+   FOTODETENIDO         CHAR(254)            null,
+   constraint PK_DETENIDO primary key (CODIGODETENIDO)
+);
 
---
--- Estructura de tabla para la tabla `caso_juzgado`
---
+/*==============================================================*/
+/* Index: DETENIDO_PK                                           */
+/*==============================================================*/
+create unique index DETENIDO_PK on DETENIDO (
+CODIGODETENIDO
+);
 
-CREATE TABLE IF NOT EXISTS `caso_juzgado` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `codigo_atraco_id` int(11) NOT NULL,
-  `condenado` tinyint(1) NOT NULL,
-  `juez_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk4` (`codigo_atraco_id`),
-  KEY `fk5` (`juez_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+/*==============================================================*/
+/* Index: CAPTURA_FK                                            */
+/*==============================================================*/
+create  index CAPTURA_FK on DETENIDO (
+CODIGOMOD
+);
 
--- --------------------------------------------------------
+/*==============================================================*/
+/* Table: ENTIDADBANCARIA                                       */
+/*==============================================================*/
+create table ENTIDADBANCARIA (
+   CODIGOENTIDAD        INT4                 not null,
+   NOMBREENTIDAD        VARCHAR(100)         null,
+   DIRECCIONENTIDAD     VARCHAR(150)         null,
+   constraint PK_ENTIDADBANCARIA primary key (CODIGOENTIDAD)
+);
 
---
--- Estructura de tabla para la tabla `empleado_sucursal`
---
+/*==============================================================*/
+/* Index: ENTIDADBANCARIA_PK                                    */
+/*==============================================================*/
+create unique index ENTIDADBANCARIA_PK on ENTIDADBANCARIA (
+CODIGOENTIDAD
+);
 
-CREATE TABLE IF NOT EXISTS `empleado_sucursal` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sucursal_id` int(11) NOT NULL,
-  `nombre` varchar(30) NOT NULL,
-  `identificacion` varchar(12) NOT NULL,
-  `telefono` varchar(12) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk6` (`sucursal_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+/*==============================================================*/
+/* Table: JUEZ                                                  */
+/*==============================================================*/
+create table JUEZ (
+   CODIGOJUEZ           INT4                 not null,
+   CLAVEJUZGADO         VARCHAR(10)          null,
+   NOMBREJUEZ           VARCHAR(100)         null,
+   SERVICIO             NUMERIC              null,
+   constraint PK_JUEZ primary key (CODIGOJUEZ)
+);
 
--- --------------------------------------------------------
+/*==============================================================*/
+/* Index: JUEZ_PK                                               */
+/*==============================================================*/
+create unique index JUEZ_PK on JUEZ (
+CODIGOJUEZ
+);
 
---
--- Estructura de tabla para la tabla `entidad_bancaria`
---
+/*==============================================================*/
+/* Table: MODULO                                                */
+/*==============================================================*/
+create table MODULO (
+   CODIGOMOD            SERIAL               not null,
+   CODIGOCOMANDO        INT4                 not null,
+   NUMEROMODULO         INT4                 null,
+   DIRECCIONMODULO      VARCHAR(100)         null,
+   FOTOMODULO           CHAR(254)            null,
+   constraint PK_MODULO primary key (CODIGOMOD)
+);
 
-CREATE TABLE IF NOT EXISTS `entidad_bancaria` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `domicilio` int(4) NOT NULL,
-  `domicilio_central` varchar(15) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+/*==============================================================*/
+/* Index: MODULO_PK                                             */
+/*==============================================================*/
+create unique index MODULO_PK on MODULO (
+CODIGOMOD
+);
 
--- --------------------------------------------------------
+/*==============================================================*/
+/* Index: COMPONE_FK                                            */
+/*==============================================================*/
+create  index COMPONE_FK on MODULO (
+CODIGOCOMANDO
+);
 
---
--- Estructura de tabla para la tabla `juez`
---
+/*==============================================================*/
+/* Table: NOTICIA                                               */
+/*==============================================================*/
+create table NOTICIA (
+   CODIGONOTICIA        SERIAL               not null,
+   CODIGOMOD            INT4                 not null,
+   TITULAR              VARCHAR(40)          null,
+   REDACCION            VARCHAR(1500)        null,
+   FOTONOTICIA          CHAR(254)            null,
+   constraint PK_NOTICIA primary key (CODIGONOTICIA)
+);
 
-CREATE TABLE IF NOT EXISTS `juez` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `codigo_interno_juzgado` int(4) NOT NULL,
-  `nombre_completo` varchar(40) NOT NULL,
-  `anios_servicio` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+/*==============================================================*/
+/* Index: NOTICIA_PK                                            */
+/*==============================================================*/
+create unique index NOTICIA_PK on NOTICIA (
+CODIGONOTICIA
+);
 
--- --------------------------------------------------------
+/*==============================================================*/
+/* Index: INFORMA_FK                                            */
+/*==============================================================*/
+create  index INFORMA_FK on NOTICIA (
+CODIGOMOD
+);
 
---
--- Estructura de tabla para la tabla `persona_detenida`
---
+/*==============================================================*/
+/* Table: POLICIA                                               */
+/*==============================================================*/
+create table POLICIA (
+   CODIGOPOLICIA        INT4                 not null,
+   CODIGOMOD            INT4                 not null,
+   NOMBREPOL            VARCHAR(100)         null,
+   APELLIDOPOL          VARCHAR(100)         null,
+   EDAD                 INT4                 null,
+   FECHANAC             DATE                 null,
+   RANGO                VARCHAR(30)          null,
+   FOTOPOLICIA          CHAR(254)            null,
+   constraint PK_POLICIA primary key (CODIGOPOLICIA)
+);
 
-CREATE TABLE IF NOT EXISTS `persona_detenida` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `codigo` varchar(40) NOT NULL,
-  `nombre_completo` varchar(40) NOT NULL,
-  `identidad` int(15) NOT NULL,
-  `banda_id` int(11) NOT NULL,
-  `nom_foto` varchar(100) NOT NULL,
-  `imagen` blob NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk7` (`banda_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+/*==============================================================*/
+/* Index: POLICIA_PK                                            */
+/*==============================================================*/
+create unique index POLICIA_PK on POLICIA (
+CODIGOPOLICIA
+);
 
--- --------------------------------------------------------
+/*==============================================================*/
+/* Index: COMPRENDE_FK                                          */
+/*==============================================================*/
+create  index COMPRENDE_FK on POLICIA (
+CODIGOMOD
+);
 
---
--- Estructura de tabla para la tabla `sucursal`
---
+/*==============================================================*/
+/* Table: SUCURSAL                                              */
+/*==============================================================*/
+create table SUCURSAL (
+   CODIGOSUCURSAL       INT4                 not null,
+   CODIGOENTIDAD        INT4                 not null,
+   NOMBRESUCURSAL       VARCHAR(100)         null,
+   DIRECCIONSUCURSAL    VARCHAR(150)         null,
+   EMPLEADOS            INT4                 null,
+   constraint PK_SUCURSAL primary key (CODIGOSUCURSAL)
+);
 
-CREATE TABLE IF NOT EXISTS `sucursal` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `entidad_bancaria_id` int(11) NOT NULL,
-  `codigo` int(4) NOT NULL,
-  `domicilio_sucursal` varchar(15) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk8` (`entidad_bancaria_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+/*==============================================================*/
+/* Index: SUCURSAL_PK                                           */
+/*==============================================================*/
+create unique index SUCURSAL_PK on SUCURSAL (
+CODIGOSUCURSAL
+);
 
--- --------------------------------------------------------
+/*==============================================================*/
+/* Index: TIENE_FK                                              */
+/*==============================================================*/
+create  index TIENE_FK on SUCURSAL (
+CODIGOENTIDAD
+);
 
---
--- Estructura de tabla para la tabla `vigilante`
---
+/*==============================================================*/
+/* Table: USUARIO                                               */
+/*==============================================================*/
+create table USUARIO (
+   CODUSUARIO           SERIAL               not null,
+   CODIGOPOLICIA        INT4                 not null,
+   CODIGOJUEZ           INT4                 not null,
+   NICK                 VARCHAR(30)          null,
+   PASSWORD             VARCHAR(70)          null,
+   constraint PK_USUARIO primary key (CODUSUARIO)
+);
 
-CREATE TABLE IF NOT EXISTS `vigilante` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `codigo` int(4) NOT NULL,
-  `edad` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+/*==============================================================*/
+/* Index: USUARIO_PK                                            */
+/*==============================================================*/
+create unique index USUARIO_PK on USUARIO (
+CODUSUARIO
+);
 
--- --------------------------------------------------------
+/*==============================================================*/
+/* Index: ES__FK                                                */
+/*==============================================================*/
+create  index ES__FK on USUARIO (
+CODIGOPOLICIA
+);
 
---
--- Estructura de tabla para la tabla `vigilante_entidad`
---
+/*==============================================================*/
+/* Index: ES_FK                                                 */
+/*==============================================================*/
+create  index ES_FK on USUARIO (
+CODIGOJUEZ
+);
 
-CREATE TABLE IF NOT EXISTS `vigilante_entidad` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `vigilante_id` int(11) NOT NULL,
-  `entidad_bancaria_id` int(11) NOT NULL,
-  `fecha_contrato` date NOT NULL,
-  `tiene_arma` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk9` (`vigilante_id`),
-  KEY `fk10` (`entidad_bancaria_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+/*==============================================================*/
+/* Table: VIGILANTE                                             */
+/*==============================================================*/
+create table VIGILANTE (
+   CODIGOVIGILANTE      INT4                 not null,
+   NOMBREVIGILANTE      VARCHAR(120)         null,
+   EDAD                 INT4                 null,
+   constraint PK_VIGILANTE primary key (CODIGOVIGILANTE)
+);
 
--- --------------------------------------------------------
+/*==============================================================*/
+/* Index: VIGILANTE_PK                                          */
+/*==============================================================*/
+create unique index VIGILANTE_PK on VIGILANTE (
+CODIGOVIGILANTE
+);
 
---
--- Estructura de tabla para la tabla `vigilante_sucursal`
---
+alter table ASALTO
+   add constraint FK_ASALTO_REALIZO_DETENIDO foreign key (CODIGODETENIDO)
+      references DETENIDO (CODIGODETENIDO)
+      on delete restrict on update restrict;
 
-CREATE TABLE IF NOT EXISTS `vigilante_sucursal` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `vigilante_id` int(11) NOT NULL,
-  `sucursal_id` int(11) NOT NULL,
-  `fecha` date NOT NULL,
-  `tiene_arma` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk11` (`vigilante_id`),
-  KEY `fk12` (`sucursal_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+alter table ASALTO
+   add constraint FK_ASALTO_SUFRE_SUCURSAL foreign key (CODIGOSUCURSAL)
+      references SUCURSAL (CODIGOSUCURSAL)
+      on delete restrict on update restrict;
 
---
--- Restricciones para tablas volcadas
---
+alter table BANDADELINCUENCIAL
+   add constraint FK_BANDADEL_INTEGRA_DETENIDO foreign key (CODIGODETENIDO)
+      references DETENIDO (CODIGODETENIDO)
+      on delete restrict on update restrict;
 
---
--- Filtros para la tabla `atraco_persona`
---
-ALTER TABLE `atraco_persona`
-  ADD CONSTRAINT `fk1` FOREIGN KEY (`persona_detenida_id`) REFERENCES `persona_detenida` (`id`),
-  ADD CONSTRAINT `fk2` FOREIGN KEY (`atraco_sucursal_id`) REFERENCES `atraco_sucursal` (`id`);
+alter table CONTRATACION
+   add constraint FK_CONTRATA_NECESITA_ENTIDADB foreign key (CODIGOENTIDAD)
+      references ENTIDADBANCARIA (CODIGOENTIDAD)
+      on delete restrict on update restrict;
 
---
--- Filtros para la tabla `atraco_sucursal`
---
-ALTER TABLE `atraco_sucursal`
-  ADD CONSTRAINT `fk3` FOREIGN KEY (`sucursal_id`) REFERENCES `sucursal` (`id`);
+alter table CONTRATACION
+   add constraint FK_CONTRATA_POSEE_VIGILANT foreign key (CODIGOVIGILANTE)
+      references VIGILANTE (CODIGOVIGILANTE)
+      on delete restrict on update restrict;
 
---
--- Filtros para la tabla `caso_juzgado`
---
-ALTER TABLE `caso_juzgado`
-  ADD CONSTRAINT `fk4` FOREIGN KEY (`codigo_atraco_id`) REFERENCES `atraco_persona` (`id`),
-  ADD CONSTRAINT `fk5` FOREIGN KEY (`juez_id`) REFERENCES `juez` (`id`);
+alter table CONTRATACION
+   add constraint FK_CONTRATA_REQUIERE_SUCURSAL foreign key (CODIGOSUCURSAL)
+      references SUCURSAL (CODIGOSUCURSAL)
+      on delete restrict on update restrict;
 
---
--- Filtros para la tabla `empleado_sucursal`
---
-ALTER TABLE `empleado_sucursal`
-  ADD CONSTRAINT `fk6` FOREIGN KEY (`sucursal_id`) REFERENCES `sucursal` (`id`);
+alter table DELITO
+   add constraint FK_DELITO_RELATIONS_DETENIDO foreign key (CODIGODETENIDO)
+      references DETENIDO (CODIGODETENIDO)
+      on delete restrict on update restrict;
 
---
--- Filtros para la tabla `persona_detenida`
---
-ALTER TABLE `persona_detenida`
-  ADD CONSTRAINT `fk7` FOREIGN KEY (`banda_id`) REFERENCES `banda` (`id`);
+alter table DELITO
+   add constraint FK_DELITO_RELATIONS_JUEZ foreign key (CODIGOJUEZ)
+      references JUEZ (CODIGOJUEZ)
+      on delete restrict on update restrict;
 
---
--- Filtros para la tabla `sucursal`
---
-ALTER TABLE `sucursal`
-  ADD CONSTRAINT `fk8` FOREIGN KEY (`entidad_bancaria_id`) REFERENCES `entidad_bancaria` (`id`);
+alter table DETENIDO
+   add constraint FK_DETENIDO_CAPTURA_MODULO foreign key (CODIGOMOD)
+      references MODULO (CODIGOMOD)
+      on delete restrict on update restrict;
 
---
--- Filtros para la tabla `vigilante_entidad`
---
-ALTER TABLE `vigilante_entidad`
-  ADD CONSTRAINT `fk10` FOREIGN KEY (`entidad_bancaria_id`) REFERENCES `entidad_bancaria` (`id`),
-  ADD CONSTRAINT `fk9` FOREIGN KEY (`vigilante_id`) REFERENCES `vigilante` (`id`);
+alter table MODULO
+   add constraint FK_MODULO_COMPONE_COMANDOP foreign key (CODIGOCOMANDO)
+      references COMANDOPOLICIAL (CODIGOCOMANDO)
+      on delete restrict on update restrict;
 
---
--- Filtros para la tabla `vigilante_sucursal`
---
-ALTER TABLE `vigilante_sucursal`
-  ADD CONSTRAINT `fk11` FOREIGN KEY (`vigilante_id`) REFERENCES `vigilante` (`id`),
-  ADD CONSTRAINT `fk12` FOREIGN KEY (`sucursal_id`) REFERENCES `sucursal` (`id`);
+alter table NOTICIA
+   add constraint FK_NOTICIA_INFORMA_MODULO foreign key (CODIGOMOD)
+      references MODULO (CODIGOMOD)
+      on delete restrict on update restrict;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+alter table POLICIA
+   add constraint FK_POLICIA_COMPRENDE_MODULO foreign key (CODIGOMOD)
+      references MODULO (CODIGOMOD)
+      on delete restrict on update restrict;
+
+alter table SUCURSAL
+   add constraint FK_SUCURSAL_TIENE_ENTIDADB foreign key (CODIGOENTIDAD)
+      references ENTIDADBANCARIA (CODIGOENTIDAD)
+      on delete restrict on update restrict;
+
+alter table USUARIO
+   add constraint FK_USUARIO_ES_JUEZ foreign key (CODIGOJUEZ)
+      references JUEZ (CODIGOJUEZ)
+      on delete restrict on update restrict;
+
+alter table USUARIO
+   add constraint FK_USUARIO_ES__POLICIA foreign key (CODIGOPOLICIA)
+      references POLICIA (CODIGOPOLICIA)
+      on delete restrict on update restrict;
