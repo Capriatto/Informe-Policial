@@ -72,7 +72,6 @@
 	/*deshacer el seleccionado de texto y menu con clic derecho*/
 	document.oncontextmenu = inactivar;
 	document.onselectstart=inactivar;
-	//document.onmousedown=inactivar;
 
 	document.loggin.addEventListener("submit", validarFormulario);
 	cabeceraTabla.addEventListener("click", mostrarLineas);

@@ -3,7 +3,7 @@
 	margin:0;
 }
 body{
-	background: url("../../images/fondoPolicia.jpg");
+	background: url("../../images/fondoPolicial.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
@@ -63,17 +63,13 @@ div.descripcion{
 	border-radius: 10px;
 	margin-bottom: 20px;
 }
-
-.imagenDescripcion img{
-	padding: 0px 10px;
-	padding-bottom: 30px;
-}
 img.iconoHome{
 	width: 70px;
 }
 .parrafo p{
 	color: #fff;
 	font-size: 13px;
+	font-weight:bold;
 }
 table.infoEmergencias{
 	color: #fff;

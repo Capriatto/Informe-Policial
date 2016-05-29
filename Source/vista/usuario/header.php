@@ -25,12 +25,13 @@
 			       otro elemento que se pueda ocultar al minimizar la barra -->
 			  	<div class="collapse navbar-collapse navbar-ex1-collapse">
 			    	<ul class="nav navbar-nav hidden-md hidden-lg">
-				      <li class="btnNav"><a href="?c=1">Noticias</a></li>
+			    	  <li class="btnNav"><a href="#">Inicio</a></li>
+				      <li class="btnNav"><a href="#">Noticias</a></li>
 				      <li class="btnNav"><a href="#">Estaciones Policiales</a></li>
 				      <li class="btnNav"><a href="#">Desaparecidos</a></li>
 				      <li class="btnNav"><a href="#">Acerca De</a></li>
 			    	</ul>
-
+			    </div>
 			 	<form action="#" class="navbar-form navbar-right visible-lg visible-md" 
 			 	name="loggin" method="POST">
 			 		<div class="form-group">
@@ -41,7 +42,6 @@
 			 		</div>
 			 		<input type="submit" class="btn submit" value="Ingresar">
 			 	</form>
-			  </div>
 			</div>
 		</nav>
 	</header>

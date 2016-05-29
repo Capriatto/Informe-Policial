@@ -49,30 +49,31 @@
 			<aside class="col-lg-4 col-md-4 visible-lg visible-md">
 				<h3 class="tituloPrincipal">INFORMACION</h3>
 				<div class="list-group menuInfo">
-					<a href="?c=1" class="list-group-item">Noticas</a>
-					<a href="#" class="list-group-item">Estaciones Policiales</a>
+					<a href="#" class="list-group-item">Inicio</a>
+					<a href="#" class="list-group-item">Noticas</a>
+					<a href="?c=1" class="list-group-item">Estaciones Policiales</a>
 					<a href="#" class="list-group-item">Desaparecidos</a>
 					<a href="#" class="list-group-item">Acerca De</a>
 				</div>
 			</aside>
 			<section class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
 				<h3 class="tituloPrincipal">DESCRIPCION</h3>
-				<div class="descripcion">
-					<div class="imagenDescripcion">
+				<div class="descripcion col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 						<img class="iconoHome" src="images/icono policia.png" align="left">
 					</div>
-					<div class="parrafo">
+					<div class="parrafo col-xs-10 col-sm-10 col-md-10 col-lg-10">
 						<p>
 						Somos una institución dedicada al mantenimiento del orden público, seguridad ciudadana
 						mediante el monopolio de la fuerza y cumplimiento de las leyes. Estamos sometida a  las órdenes del Estado.<br>
 						</p>
 					 </div>
 				</div>
-				<div class="descripcion">
-					<div class="imagenDescripcion">
+				<div class="descripcion col-xs-12">
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 						<img class="iconoHome" src="images/icono asalto.png" align="left">
 					</div>
-					<div class="parrafo">
+					<div class="parrafo col-xs-10 col-sm-10 col-md-10 col-lg-10">
 						<p>
 						Nuestra obligación es disuadir  e investigar crímenes en contra de las personas que afecten 
 						el orden público, así como el arresto de sospechosos, reporte ofensas menores por medio  de citaciones que suelen terminar en un pago de fianza, 
@@ -80,11 +81,11 @@
 						</p>	
 					</div>
 				</div>
-				<div class="descripcion">
-					<div class="imagenDescripcion">
+				<div class="descripcion col-xs-12">
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 						<img class="iconoHome" src="images/icono patrulla.png" align="left">
 					</div>
-					<div class="parrafo">
+					<div class="parrafo col-xs-10 col-sm-10 col-md-10 col-lg-10">
 						<p>
 						Realizamos patrullaje en donde existe mayor delincuencia, tenemos varios <button class="btn btn-primary btn-xs" id="irAbajo">líneas telefónicas</button> disponibles 
 						para atender cualquier emergencia y poder asistirlo con el envío de una patrulla y por esa razón el objetivo ante esto es 
